@@ -1,0 +1,51 @@
+# =============================================================================
+# B2-CR Framework: configuration template
+# =============================================================================
+# Copy this file to config.yaml and fill in the values for your project.
+#
+# Before running, export your credentials as environment variables:
+#   export OPENAI_BASE_URL=https://your-endpoint/api
+#   export OPENAI_API_KEY=your-key-here
+# =============================================================================
+
+# --- Input / Output -----------------------------------------------------------
+xml_input: ~/my-project/references.xml
+xml_output_base: ~/my-project/output/B2-CR/B2-CR_run
+included_json: included_entries_B2-CR.json
+short_texts_json: pdfs_preprocessed_B2-CR.json
+summary_path: summary_B2-CR_runs.json
+transcript_dir: transcripts/B2-CR
+
+# --- Folders ------------------------------------------------------------------
+pdf_folder: ~/my-project/pdfs/B2-CR
+manual_folder: ~/my-project/pdfs/manual
+
+# --- Model --------------------------------------------------------------------
+model: your-model-id-here
+
+# Optional: generation parameters (uncomment if your model requires them).
+# generation_kwargs:
+#   temperature: 0.6
+#   top_p: 0.95
+
+# --- Tokenizer ----------------------------------------------------------------
+# Used to measure and limit PDF body length. Any HuggingFace tokenizer whose
+# vocabulary matches your model works here.
+tokenizer: nvidia/Llama-3_3-Nemotron-Super-49B-v1
+
+# --- Token budget -------------------------------------------------------------
+# Maximum context window of your model. reserved_prompt_tokens is subtracted
+# to leave room for the screening prompt; the remainder is the PDF body budget.
+# Default values assume a 131 072-token context. For the original study setup
+# (32 768-token context), use max_total_tokens: 32768.
+# max_total_tokens: 131072
+# reserved_prompt_tokens: 5000
+
+# --- Run settings -------------------------------------------------------------
+n_cycles: 10
+max_workers: 10
+sleep_between_downloads: 2
+
+# --- PDF download -------------------------------------------------------------
+# Optional: IDs (integers) of papers to skip during PDF download.
+# skip_ids: [337, 788, 1018]

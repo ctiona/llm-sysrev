@@ -1,0 +1,11 @@
+openai>=1.0.0
+pyyaml>=6.0
+xmltodict>=0.13
+tqdm>=4.0
+requests>=2.28
+pymupdf4llm>=0.0.17
+transformers>=4.40
+markdown>=3.5
+beautifulsoup4>=4.12
+duckduckgo-search>=6.0
+nest-asyncio>=1.6
